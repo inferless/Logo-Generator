@@ -1,3 +1,6 @@
+import os
+os.environ["HF_HUB_ENABLE_HF_TRANSFER"]='1'
+from huggingface_hub import snapshot_download
 import json
 import numpy as np
 import torch
@@ -17,6 +20,7 @@ class InferlessPythonModel:
         """
         model_id = "stabilityai/stable-diffusion-xl-base-1.0"
         lora_id = "artificialguybr/LogoRedmond-LogoLoraForSDXL-V2"
+        snapshot_download(repo_id=model_id,allow_patterns=["*.safetensors"])
 
         # Load the diffusion model with FP16 precision for efficiency
         self.pipe = DiffusionPipeline.from_pretrained(model_id, variant="fp16")
