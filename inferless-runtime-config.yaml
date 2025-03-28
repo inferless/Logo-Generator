@@ -11,4 +11,4 @@ build:
     - "transformers==4.38.2"
     - "peft==0.9.0"
     - "hf-transfer==0.1.9"
-    - "huggingface-hub==0.29.1"
+    - "huggingface-hub==0.25.0"
